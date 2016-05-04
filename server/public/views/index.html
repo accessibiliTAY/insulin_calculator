@@ -1,14 +1,42 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html ng-app="insulinCal">
+
+<head>
     <meta charset="utf-8">
     <title>MEAN stack app</title>
     <link rel="stylesheet" href="stylesheets/bootstrap.min.css">
     <link rel="stylesheet" href="stylesheets/index.css">
     <script src="vendor/angular/angular.min.js"></script>
     <script src="assets/scripts/client.min.js"></script>
-  </head>
-  <body>
+    <script src="vendor/angular-route/angular-route.min.js"></script>
+    <base href="/" />
+</head>
+
+<body class="container" ng-controller="MainController">
+    <div class="jumbotron">
+        <h1>INSULIN</h1>
+    </div>
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="/" class="thumb">API Search</a>
+                    {{api.form}}
+                </li>
+                <li>
+                    <a href="/insulinCal">Insulin Calculator</a>
+                    {{insulin.form}}
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div ng-view>
+
+    </div>
+
+
+    <!--
     <h1>Project Title</h1>
     <div>
     <p class="subTitles">Food Search</p>
@@ -30,8 +58,9 @@
     <div id="appendLog">
 
     </div>
-  </div>
-  </body>
+  </div> -->
+</body>
+
 </html>
 
 
