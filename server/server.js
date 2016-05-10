@@ -6,6 +6,8 @@ var port = process.env.PORT || 3000;
 
 //var index = require('./routes/index');
 var initializeDB = require('./db/connection').initializeDB;
+var pg = require('pg');
+var connectionString = 'postgres://localhost:5432/soloProject';
 
 var passport = require('passport');
 var session = require('express-session');
@@ -35,53 +37,64 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 //////////PASSPORT//////////
-passport.use('local', new localStrategy({passReqToCallback : true, usernameField: 'username'},
+passport.use('local', new localStrategy({
+  passReqToCallback : true,
+  usernameField: 'username'
+},
   function(req, username, password, done){
-    console.log('called local');
+    console.log('Checking password');
     pg.connect(connectionString, function(err, client){
       console.log('called local - pg');
-      var user = {};
-      var query = client.query("SELECT * FROM users WHERE username = $1", [username]);
+        var query = client.query("SELECT * FROM users WHERE username = $1", [username]);
 
-      query.on('row',function(row){
+        if(err){
+          console.log(err);
+        }
+
+        var user = {};
+
+      query.on('row', function(row){
         console.log('user obj', row);
-        console.log('password', password);
         user = row;
-        if (password == user.password){
+        console.log(password, user.password, 'password');
+        if (password === user.password){
           console.log('MATCH!');
-          done(null, user);
+          done(err, user);
         }else{
-          done(null, false, {message: 'Incorrect Username and Password.'});
+          console.log('no matches found');
+          done(null, false);
         }
       });
 
-      query.on('end', function (){
+      client.on('end', function (){
         client.end();
-        res.send(results);
-      });
-
-      if (err){
-        console.log(err);
-      }
-    });
-}));
+      })
+    })
+  }
+));
 
 
 passport.serializeUser(function(user,done){
+  console.log('Hit serializeUser');
   done(null,user.id);
 });
 
-passport.deserializeUser(function(user,done){
+passport.deserializeUser(function(id, passportDone){
   console.log('called deserializeUser');
-  pg.connect(connection, function (err, client){
-    var user = {};
-    console.log('called deserializeUser - pg');
+  pg.connect(connectionString, function (err, client, done){
+
+    if(err){
+      console.log(err);
+    }
+      var user = {};
+
+
     var query = client.query("SELECT * FROM users WHERE id = $1", [id]);
 
     query.on('row', function (row){
       console.log('user row', row);
       user = row;
-      done(null, user);
+      passportDone(null, user);
     });
 
     query.on('end', function(){

@@ -1,1 +1,11 @@
-undefined
+p {
+  display: inline-block;
+}
+.well {
+  width: 25%;
+  height: 440px;
+  display: inline-block;;
+}
+body.container.ng-scope.ng-binding{
+  margin: 15px;
+}

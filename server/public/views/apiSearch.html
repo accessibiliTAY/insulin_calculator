@@ -1,9 +1,35 @@
 <h1>Food Search</h1>
-<div>
-<p class="subTitles">Food Search</p>
-<input type="text" name="apiSearch" id="apiSearch"/>
-<input type="submit" />
-<section id="appendApi">
 
-</section>
+<div>
+    <input type="text" ng-model="search" placeholder="Search Foods" />
+    <button ng-click="addInfo(api)">Submit</button>
+    <section ng-show="clickAPI">
+        <ul class="row">
+            <li class="col-lg-4 well" ng-repeat="food in api.hits">{{food.fields.brand_name}}
+                <br /> {{food.fields.item_name}}
+                <p> Calories from Fat </p> {{food.fields.nf_calories_from_fat}}
+                <br />
+                <p class="header"> Total Fat </p> {{food.fields.nf_total_fat}}g
+                <br />
+                <p> Saturated Fat </p> {{food.fields.nf_saturated_fat}}g
+                <br />
+                <p>Trans Fat </p> {{food.fields.nf_trans_fatty_acid}}g
+                <br />
+                <p>Polyunsaturated Fat </p> {{food.fields.nf_polyunsaturated_fat}}g
+                <br />
+                <p>Monounsaturated Fat </p> {{food.fields.nf_monounsaturated_fat}}g
+                <br />
+                <p class="header"> Cholesterol </p> {{food.fields.nf_cholesterol}}
+                <br />
+                <p class="header"> Sodium </p> {{food.fields.nf_sodium}}
+                <br />
+                <p class="header"> Total Carbohydrates </p> {{food.fields.nf_total_carbohydrate}}
+                <br />
+                <p> Dietary Fiber </p> {{food.fields.nf_dietary_fiber}}
+                <br />
+                <p> Sugars </p> {{food.fields.nf_sugars}}
+              <br />
+              <p class="header"> Protien </p> {{food.fields.nf_protein}}</li>
+        </ul>
+    </section>
 </div>

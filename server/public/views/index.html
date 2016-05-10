@@ -11,8 +11,11 @@
     <script src="vendor/angular-route/angular-route.min.js"></script>
     <base href="/" />
 </head>
-
 <body class="container" ng-controller="MainController">
+  <a href="/users">Log in</a>
+  {{users.form}}
+  <a href="/register">Register</a>
+  {{register.login}}
     <div class="jumbotron">
         <h1>INSULIN</h1>
     </div>
@@ -20,7 +23,7 @@
         <div class="container">
             <ul class="nav navbar-nav">
                 <li>
-                    <a href="/" class="thumb">API Search</a>
+                    <a href="/">API Search</a>
                     {{api.form}}
                 </li>
                 <li>
