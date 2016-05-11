@@ -56,19 +56,5 @@ app.controller('registerController', function(){
   console.log("registerlog is working");
 })
 app.controller('MainController', ['$scope','$http', function($scope, $http){
-  // var vm = this
-//   $scope.search = "";
-//   $scope.api = {};
-//   $scope.addInfo = function(){
-//     $http.get('https://api.nutritionix.com/v1_1/search/' + $scope.search + '?fields=item_name%2Citem_id%2Cbrand_name%2Cnf_servings_per_container%2Cnf_serving_size_qty%2Cnf_calories%2Cnf_calories_from_fat%2Cnf_total_fat%2Cnf_saturated_fat%2Cnf_cholesterol%2Cnf_sodium%2Cnf_dietary_fiber%2Cnf_total_carbohydrate%2Cnf_total_fat%2Cnf_sugars%2Cnf_protein%2Cnf_potassium&appId=ceef395e&appKey=46fce9d57d0e7dd4bd60643dcaa29970').then(function(response){
-//       $scope.clickAPI = true;
-//       console.log(response);
-//       $scope.api = response.data;
-//
-//     })
-//     console.log("hey1");
-//     $scope.update = function(api){
-//       $scope.search = api.data;
-//   };
-// }
+
 }]);
