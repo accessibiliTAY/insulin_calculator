@@ -5,4 +5,4 @@ var correctionDose = function(){
   return (bloodSugarInput - 120)/50;
 }
 
-moduke.exports = correctionDose;
+module.exports = correctionDose;

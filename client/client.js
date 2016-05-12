@@ -46,9 +46,73 @@ app.controller('apiController', ['$scope','$http', function($scope, $http){
 }
 }]);
 
-app.controller('insulinController', function(){
-  //insulin.form =
-});
+app.controller('insulinController', ['$scope', function($scope){
+  $scope.diabetes = {};
+  $scope.diabetes.carbIntake;
+  $scope.diabetes.bloodSugar;
+  $scope.diabetes.weight;
+  $scope.diabetes.meal;
+
+
+  $scope.finalCalculation = function(){
+
+
+    $scope.diabetes.carbCover = $scope.diabetes.carbIntake * ratio;
+
+    $scope.diabetes.correctionDose = ($scope.diabetes.bloodSugar - 120)/50;
+
+    $scope.diabetes.final =  $scope.diabetes.carbCover + $scope.diabetes.correctionDose;
+
+
+  console.log($scope.diabetes.final);
+  };
+
+  var ratio;
+$scope.insulinCalc = function(data){
+  console.log("insulinCalc", data);
+
+  if($scope.diabetes.weight <= 60){
+     ratio = 1/30;
+     console.log(ratio);
+  } else if($scope.diabetes.weight > 60 && $scope.diabetes.weight <= 80){
+    ratio = 1/25;
+     console.log(ratio);
+  }else if($scope.diabetes.weight > 80 && $scope.diabetes.weight <= 100){
+     ratio = 1/20;
+     console.log(ratio);
+  }
+  else if($scope.diabetes.weight > 100 && $scope.diabetes.weight <= 120){
+     ratio = 1/18;
+     console.log(ratio);
+  }
+  else if($scope.diabetes.weight > 120 && $scope.diabetes.weight <= 140){
+     ratio = 1/15;
+     console.log(ratio);
+  }else if($scope.diabetes.weight > 140 && $scope.diabetes.weight <= 170){
+     ratio = 1/12;
+     console.log(ratio);
+     console.log("Getting here!", ratio);
+  }
+  else if($scope.diabetes.weight > 170 && $scope.diabetes.weight <= 200){
+     ratio = 1/10;
+     console.log(ratio);
+  }
+  else if($scope.diabetes.weight > 200 &&  $scope.diabetes.weight <= 230){
+     ratio = 1/8;
+     console.log(ratio);
+  }else if($scope.diabetes.weight > 230 && $scope.diabetes.weight <= 270){
+     ratio = 1/6;
+     console.log(ratio);
+  } else if ($scope.diabetes.weight > 270){
+     ratio = 1/5;
+     console.log(ratio);
+  };
+
+$scope.finalCalculation();
+console.log($scope.diabetes);
+};
+console.log("hi", $scope.diabetes.meal);
+}]);
 app.controller('usersController', function(){
   console.log('usersController is working');
 })

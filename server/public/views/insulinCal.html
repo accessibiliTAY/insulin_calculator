@@ -1,14 +1,25 @@
 <div>
     <h2>Insulin Unit Calculator</h2>
-    <form method="post" id="unitForm">
+    <form ng-submit="insulinCalc(diabetes)">
     <label for="bloodSugar">Blood Sugar</label>
-    <input type="number" name="bloodSugar" id="bloodSugar" />
+    <input type="number" ng-model="diabetes.bloodSugar" name="bloodSugar" id="bloodSugar" />
     <label for="carbIntake">Carb Intake</label>
-    <input type="number" name="carbIntake" id="carbIntake" />
+    <input type="number" ng-model="diabetes.carbIntake" name="carbIntake" id="carbIntake" />
     <label for="weight">Weight</label>
-    <input type="number" name="weight" id="weight" />
-    <input type="submit" />
+    <input type="number" ng-model="diabetes.weight" name="weight" id="weight" />
+    <!-- <label for="meal">Meal</label>
+    <input type="string" ng-model="diabetes.meal" name="meal" /> -->
+
+
+    <select>
+      <option type="string" value="Breakfast" ng-model="diabetes.meal" >Breakfast</option>
+      <option type="string" value="Lunch "ng-model="diabetes.meal">Lunch</option>
+      <option type="string" value="Dinnrt" ng-model="diabetes.meal">Dinner</option>
+      <option type="string" value="snack"ng-model="diabetes.meal">Snack</option>
+    </select>
+    <button type="submit">Calculate</button>
     </form>
-    <div id="appendLog">
+    <div>
+      {{diabetes.final}}
     </div>
 </div>
