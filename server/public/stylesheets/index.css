@@ -1,18 +1,74 @@
+html {
+  font-family: 'Merriweather', serif;
+  -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+}
+
+h1{
+  font-family: 'Merriweather', serif;
+  color:#D0D3D4;
+  text-align: center;
+  margin: 0;
+}
+h2 {
+  font-family: 'Merriweather', serif;
+  padding-top: 30px;
+  text-align: center;
+}
+form {
+  margin: 0;
+  text-align: center;
+}
 p {
+  font-family: 'Merriweather', serif;
   display: inline-block;
+}
+label {
+  font-family: 'Merriweather', serif;
+}
+button {
+  font-family: 'Merriweather', serif;
+
+}
+body{
+  background-color: #D0D3D4;
+  color: black;
+  text-align:right;
+}
+a {
+  font-family: 'Merriweather', serif;
+  text-align:left;
+  color: black;
 }
 .well {
   width: 25%;
   height: 440px;
-  display: inline-block;;
-}
-body.container.ng-scope.ng-binding{
-  margin: 15px;
+  display: inline-block;
 }
 .jumbotron {
-  background-color: blue;
+  font-family: 'Merriweather', serif;
+  color: black;
+  background-color: #D0D3D4;
+  padding-bottom: 0;
+  margin-bottom: 0;
 }
-h1{
-  text-align: center;
-  margin: 0
+.button {
+font-family: 'Merriweather', serif;
+}
+ul.nav.navbar-nav {
+  margin: 0 auto;
+}
+.navbar{
+  background-color: #D0D3D4;
+  display: flex;
+  align-content: center;
+  width: 100%;
+
+}
+.navbar a {
+  text-align: left;
+  display: inline;
+}
+.passport a {
+text-align: left;
 }

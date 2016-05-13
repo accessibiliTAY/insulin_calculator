@@ -5,22 +5,26 @@
     <meta charset="utf-8">
     <title>MEAN stack app</title>
     <link rel="stylesheet" href="stylesheets/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,700,300,900' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="stylesheets/index.css">
     <script src="vendor/angular/angular.min.js"></script>
     <script src="assets/scripts/client.min.js"></script>
     <script src="vendor/angular-route/angular-route.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <base href="/" />
 </head>
 <body class="container" ng-controller="MainController">
-  <a href="/users">Log in</a>
+  <a class = "passport" href="/users">Log in</a>
   {{users.form}}
-  <a href="/register">Register</a>
+  <a  class="passport" href="/register">Register</a>
   {{register.login}}
     <div class="jumbotron">
         <h1>INSULIN</h1>
     </div>
-    <nav class="navbar navbar-default">
-        <div class="container">
+    
+    <nav class="navbar">
+        <!-- <div class="container"> -->
             <ul class="nav navbar-nav">
                 <li>
                     <a href="/">API Search</a>
@@ -31,7 +35,7 @@
                     {{insulin.form}}
                 </li>
             </ul>
-        </div>
+        <!-- </div> -->
     </nav>
 
     <div ng-view>
