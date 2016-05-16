@@ -46,12 +46,38 @@ app.controller('apiController', ['$scope', '$http', function($scope, $http) {
     }
 }]);
 
-app.controller('insulinController', ['$scope', function($scope) {
+app.controller('insulinController', ['$scope', '$http', function($scope, $http) {
     $scope.diabetes = {};
-    $scope.diabetes.carbIntake;
+
     $scope.diabetes.bloodSugar;
     $scope.diabetes.weight;
     $scope.diabetes.meal;
+    $scope.diabetes.carbIntake;
+    $scope.meals = ["breakfast", "lunch", "dinner", "snack"]
+
+
+        // $scope.getData = function() {
+        //     $http.get('/insulinCal/infoLog').then(function(response) {
+        //         console.log("received data");
+        //         console.log(response);
+        //       //  $scope.allData = response.data;
+        //         console.log("new", $scope.response);
+        //     });
+        //   //  $scope.postData();
+        // };
+        // $scope.postData = function() {
+        //     $http.post('insulinCal/infoLog', {
+        //         carbIntake: $scope.diabetes.carbIntake,
+        //         bloodSugar: $scope.diabetes.bloodSugar,
+        //         weight: $scope.diabetes.weight,
+        //         meal: $scope.diabetes.meal,
+        //         correctionDose: $scope.diabetes.correctionDose,
+        //         final: $scope.diabetes.final
+        //     }).then(function(serverResponse) {
+        //         console.log('made it to line 107', serverResponse);
+        //     });
+        //     $scope.getData();
+        // };
 
 
     $scope.finalCalculation = function() {
@@ -64,6 +90,7 @@ app.controller('insulinController', ['$scope', function($scope) {
     var ratio;
     $scope.insulinCalc = function(data) {
 
+        console.log("calling insulinCalc", $scope.diabetes.meal);
         if ($scope.diabetes.weight <= 60) {
             ratio = 1 / 30;
             console.log(ratio);
@@ -100,13 +127,21 @@ app.controller('insulinController', ['$scope', function($scope) {
         $scope.finalCalculation();
         console.log($scope.diabetes);
     };
+    console.log("here it is");
+    //$scope.getData();
 }]);
+
+
 app.controller('usersController', function() {
     console.log('usersController is working');
 })
+
+
 app.controller('registerController', function() {
     console.log("registerlog is working");
 })
+
+
 app.controller('MainController', ['$scope', '$http', function($scope, $http) {
 
 }]);

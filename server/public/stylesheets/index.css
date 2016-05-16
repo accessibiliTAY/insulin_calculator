@@ -18,10 +18,13 @@ h2 {
 form {
   margin: 0;
   text-align: center;
+  padding-top: 30px;
 }
 p {
   font-family: 'Merriweather', serif;
   display: inline-block;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 label {
   font-family: 'Merriweather', serif;
@@ -40,6 +43,11 @@ a {
   text-align:left;
   color: black;
 }
+
+/*ul {
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;*/
+/*}*/
 .well {
   width: 25%;
   height: 440px;
@@ -63,7 +71,9 @@ ul.nav.navbar-nav {
   display: flex;
   align-content: center;
   width: 100%;
-
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+  }
 }
 .navbar a {
   text-align: left;
@@ -71,4 +81,8 @@ ul.nav.navbar-nav {
 }
 .passport a {
 text-align: left;
+}
+.searchbar {
+  text-align: center;
+  padding-top: 40px;
 }

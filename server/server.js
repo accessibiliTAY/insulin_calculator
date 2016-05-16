@@ -11,11 +11,13 @@ var connectionString = 'postgres://localhost:5432/soloProject';
 
 var passport = require('passport');
 var session = require('express-session');
-var localStrategy = require('passport-local').Strategy;
-
+var LocalStrategy = require('passport-local').Strategy;
+var flash = require("flash");
+var cookieParser = require('cookie-parser');
 var register = require('./routes/registerRoute');
 var users = require('./routes/usersRoute');
 
+var blood = require('./routes/blood');
 ////////////import modules//////////
 var index = require('./routes/index');
 
@@ -33,11 +35,15 @@ app.use(session({
   cookie:{maxAge: 60000, secure: false}
 }));
 
-app.use(passport.initialize());
-app.use(passport.session());
-
+// app.use(passport.initialize());
+// app.use(passport.session());
+// app.use(express.cookieParser());
+// app.use(express.bodyParser())
+// app.use(flash());
+// app.use(express.session({ secret: 'so secret' }));
+// app.use(app.router);
 //////////PASSPORT//////////
-passport.use('local', new localStrategy({
+passport.use('local', new LocalStrategy({
   passReqToCallback : true,
   usernameField: 'username'
 },
@@ -110,11 +116,13 @@ passport.deserializeUser(function(id, passportDone){
 app.use('/', index);
 app.use('/register', register);
 app.use('/users', users);
+//app.use('insulinCal/infoLog', blood);
 
 
 
-
-
+// app.get('/*', function(request, response) {
+//     response.sendFile(path.join(__dirname, '../public/views/index.html'));
+// })
 
 
 

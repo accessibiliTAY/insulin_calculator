@@ -11,15 +11,21 @@
     <input type="string" ng-model="diabetes.meal" name="meal" /> -->
 
 
-    <select>
-      <option type="string" value="Breakfast" ng-model="diabetes.meal" >Breakfast</option>
-      <option type="string" value="Lunch "ng-model="diabetes.meal">Lunch</option>
-      <option type="string" value="Dinnrt" ng-model="diabetes.meal">Dinner</option>
-      <option type="string" value="snack"ng-model="diabetes.meal">Snack</option>
-    </select>
-    <input class="btn btn-default" type="submit" value="Calculate"/>
-    </form>
-    <div>
-      <p>Your suggested dose of insulin is: {{diabetes.final}}</p>
-    </div>
+    <select ng-model="diabetes.meal" ng-options="meal for meal in meals"></select>
+    <button ng-click="diabetes.postData()" class="btn btn-default" type="submit" value="Calculate">Calculate</button>
+  </form>
+  <div>
+
+    <p>Your suggested dose of insulin is: {{diabetes.final}}</p>
+  </div>
+    <!-- <div ng-repeat="i">
+      <! <p>Your suggested dose of insulin is: {{diabetes.final}}</p><br /> -->
+<!--
+      Carb Intake: {{insulin.carbIntake}}
+      Blood Sugar: {{insulin.bloodSugar}}
+      Weight: {{insulin.weight}}
+      Meal: {{insulin.meal}}
+      Correction Dose: {{insulin.correctionDose}}
+      Final Dose: {{insulin.final}}
+    </div> -->
 </div>
