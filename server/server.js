@@ -35,8 +35,8 @@ app.use(session({
   cookie:{maxAge: 60000, secure: false}
 }));
 
-// app.use(passport.initialize());
-// app.use(passport.session());
+ app.use(passport.initialize());
+ app.use(passport.session());
 // app.use(express.cookieParser());
 // app.use(express.bodyParser())
 // app.use(flash());

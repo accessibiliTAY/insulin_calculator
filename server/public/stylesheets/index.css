@@ -23,8 +23,8 @@ form {
 p {
   font-family: 'Merriweather', serif;
   display: inline-block;
-  padding-top: 50px;
-  padding-bottom: 50px;
+  /*padding-top: 50px;
+  padding-bottom: 50px;*/
 }
 label {
   font-family: 'Merriweather', serif;
@@ -36,11 +36,11 @@ button {
 body{
   background-color: #D0D3D4;
   color: black;
-  text-align:right;
+  text-align:left;
 }
 a {
   font-family: 'Merriweather', serif;
-  text-align:left;
+  text-align:right;
   color: black;
 }
 
@@ -50,7 +50,7 @@ a {
 /*}*/
 .well {
   width: 25%;
-  height: 440px;
+  /*height: 440px;*/
   display: inline-block;
 }
 .jumbotron {
@@ -85,4 +85,15 @@ text-align: left;
 .searchbar {
   text-align: center;
   padding-top: 40px;
+}
+.foodSearching {
+  padding-bottom: 0px;
+  text-align: left;
+}
+.finalCal {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+.passport{
+  text-align: right;
 }

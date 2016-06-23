@@ -12,8 +12,8 @@ router.get('/', function(request, response) {
 
 router.post('/',
     passport.authenticate('local', {
-        successRedirect: '/apiSearch',
-        failureRedirect: '/users',
+        successRedirect: '/search',
+        failureRedirect: '/',
         failure: true
     })
 );

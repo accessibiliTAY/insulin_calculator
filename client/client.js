@@ -2,7 +2,7 @@ var app = angular.module('insulinCal', ['ngRoute']);
 
 app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
     $routeProvider
-        .when('/', {
+        .when('/search', {
             templateUrl: 'views/apiSearch.html',
             controller: 'apiController',
             controllerAs: 'api'
@@ -12,7 +12,7 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
             controller: 'insulinController',
             controllerAs: 'insulin'
         })
-        .when('/users', {
+        .when('/', {
             templateUrl: 'views/login.html',
             controller: 'usersController',
             controllerAs: 'users'
@@ -27,8 +27,14 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
 
 }])
 
-app.controller('apiController', ['$scope', '$http', function($scope, $http) {
+app.controller('apiController', ['$scope', '$http', 'UserService', '$location', function($scope, $http, UserService, $location) {
     // var vm = this
+    UserService.isAuthenticated(function(status, user) {
+    if(status == false) {
+      $location.path('/');
+    }
+  });
+
     $scope.search = "";
     $scope.api = {};
     $scope.addInfo = function() {
@@ -46,7 +52,13 @@ app.controller('apiController', ['$scope', '$http', function($scope, $http) {
     }
 }]);
 
-app.controller('insulinController', ['$scope', '$http', function($scope, $http) {
+app.controller('insulinController', ['$scope', '$http', 'UserService', '$location', function($scope, $http, UserService, $location) {
+
+  UserService.isAuthenticated(function(status, user) {
+  if(status == false) {
+    $location.path('/');
+  }
+});
     $scope.diabetes = {};
 
     $scope.diabetes.bloodSugar;
@@ -54,30 +66,6 @@ app.controller('insulinController', ['$scope', '$http', function($scope, $http) 
     $scope.diabetes.meal;
     $scope.diabetes.carbIntake;
     $scope.meals = ["breakfast", "lunch", "dinner", "snack"]
-
-
-        // $scope.getData = function() {
-        //     $http.get('/insulinCal/infoLog').then(function(response) {
-        //         console.log("received data");
-        //         console.log(response);
-        //       //  $scope.allData = response.data;
-        //         console.log("new", $scope.response);
-        //     });
-        //   //  $scope.postData();
-        // };
-        // $scope.postData = function() {
-        //     $http.post('insulinCal/infoLog', {
-        //         carbIntake: $scope.diabetes.carbIntake,
-        //         bloodSugar: $scope.diabetes.bloodSugar,
-        //         weight: $scope.diabetes.weight,
-        //         meal: $scope.diabetes.meal,
-        //         correctionDose: $scope.diabetes.correctionDose,
-        //         final: $scope.diabetes.final
-        //     }).then(function(serverResponse) {
-        //         console.log('made it to line 107', serverResponse);
-        //     });
-        //     $scope.getData();
-        // };
 
 
     $scope.finalCalculation = function() {
